@@ -22,3 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //Route::post('generate-shorten-link',[ShortLinkController::class,'generateShortLink']);
 //Route::get('shorten-link',[ShortLinkController::class,'getLink']);
+
+Route::post('generate-shorten-link-url',[ShortLinkController::class,'generateShortLink']);
+Route::get('generate-shorten-link',[ShortLinkController::class,'index']);
+

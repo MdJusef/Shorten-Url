@@ -13,6 +13,9 @@
 <body>
 <div class="container">
     <h1>Laravel - Create URL Shortner</h1>
+    @if(session('success'))
+    <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
     <div class="card">
         <div class="card-header">
             <form method="post" action="{{ route('generate.shorten.link') }}">
@@ -23,11 +26,39 @@
                         <button class="btn btn-success">Generate Shorten Link</button>
                     </div>
                 </div>
+                    @error('real_link')
+                    <p class="m-0 p-0 text-danger">{{ $message }}</p>
+                    @enderror
+
             </form>
         </div>
     </div>
+
+    <div>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Short Link</th>
+                <th>Link</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tbody>
+            @foreach($shortenLinks as $row)
+                <tr>
+                    <td>{{ $row->id }}</td>
+                    <td><a href="{{ $row->real_link }}" target="_blank">{{url('/',$row->short_code) }}</a></td>
+                    <td>{{ $row->real_link }}</td>
+                </tr>
+            @endforeach
+            </tbody>
+
+            </tbody>
+        </table>
+    </div>
 </div>
-<h1></h1>
+
 
 <!-- Optional JavaScript; choose one of the two! -->
 

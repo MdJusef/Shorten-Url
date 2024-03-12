@@ -18,6 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('generate-shorten-link-url',[ShortLinkController::class,'generateShortLink'])->name('generate.shorten.link');
-Route::get('shorten-link',[ShortLinkController::class,'getLink']);
-Route::get('generate-shorten-link',[ShortLinkController::class,'index']);
+//Route::post('generate-shorten-link-url',[ShortLinkController::class,'generateShortLink'])->name('generate.shorten.link');
+//Route::get('generate-shorten-link',[ShortLinkController::class,'index'])->name('shorten.link');
